@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&display=swap');
+
+:root {
+  /* TerraNomad Color Scheme */
+  --dark-green: #183D28;
+  --cream: #D2C8B3;
+  --yellow: #FDBA12;
+  --orange: #F36E21;
+  
+  font-family: 'DM Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: var(--dark-green);
+  background-color: var(--cream);
+  background-image: url('./assets/background-topography.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--dark-green);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--orange);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Serif Text', serif;
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: var(--dark-green);
+}
+
+button {
+  border-radius: 8px;
+  border: 2px solid var(--dark-green);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: 'DM Sans', inherit;
+  background-color: var(--dark-green);
+  color: var(--cream);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--orange) 100%);
+  border-color: var(--orange);
+  color: var(--dark-green);
+  font-weight: 600;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* TerraNomad specific styles */
+body {
+  font-family: 'DM Sans', sans-serif;
+  padding-top: 70px; /* Account for fixed navbar */
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 60px;
+  }
+}
+
+/* Additional button styles for better gradient effect */
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--orange) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+button:hover::before {
+  opacity: 1;
+}

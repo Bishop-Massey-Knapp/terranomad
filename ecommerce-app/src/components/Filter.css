@@ -1,0 +1,177 @@
+/* Filter Component Styles */
+.filter-container {
+  background-color: white;
+  border: 2px solid var(--dark-green);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(24, 61, 40, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 90px; /* Account for fixed navbar */
+  overflow: hidden;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--cream);
+  transition: all 0.3s ease;
+}
+
+.filter-header:hover {
+  border-bottom-color: var(--orange);
+}
+
+.filter-title {
+  font-family: 'DM Serif Text', serif;
+  font-size: 1.3rem;
+  color: var(--dark-green);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.filter-header:hover .filter-title {
+  color: var(--orange);
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+}
+
+.collapse-btn:hover {
+  background-color: var(--cream);
+  transform: scale(1.1);
+}
+
+.chevron {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--dark-green);
+  border-bottom: 2px solid var(--dark-green);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+}
+
+.collapse-btn.collapsed .chevron {
+  transform: rotate(-135deg);
+}
+
+.collapse-btn:hover .chevron {
+  border-color: var(--orange);
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.filter-options.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.filter-btn {
+  background-color: transparent;
+  color: var(--dark-green);
+  border: 2px solid var(--dark-green);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.filter-btn:hover {
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--orange) 100%);
+  color: var(--dark-green);
+  border-color: var(--orange);
+  transform: translateX(4px);
+}
+
+.filter-btn.active {
+  background-color: var(--dark-green);
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.filter-btn.active:hover {
+  background: linear-gradient(135deg, var(--yellow) 0%, var(--orange) 100%);
+  color: var(--dark-green);
+  border-color: var(--orange);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .filter-container {
+    position: static;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    padding: 1rem;
+  }
+  
+  .filter-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .filter-title {
+    font-size: 1.2rem;
+  }
+  
+  .filter-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .filter-options.collapsed {
+    display: none; /* Simpler collapse on mobile */
+  }
+  
+  .filter-btn {
+    text-align: center;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .filter-btn:hover {
+    transform: translateX(0) scale(1.02);
+  }
+  
+  .collapse-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .chevron {
+    width: 10px;
+    height: 10px;
+  }
+}
